@@ -1,15 +1,20 @@
-const mongoose=require("mongoose");
+// const mongoose = require('mongoose');
+
+const mongoose = require('mongoose');
+
 mongoose.connect("mongodb://127.0.0.1:27017/scatch");
-const productSchema=mongoose.Schema({
-    image: String,
+
+const productSchema = new mongoose.Schema({
     name: String,
     price: Number,
-    discount : {
-        type : Number,
-        default: 0
-    },
+    image: Buffer,  // Use String if storing image URLs
     bgcolor: String,
     panelcolor: String,
-    textcolor: String
+    textcolor: String,
+    discount: Number
 });
-module.exports=mongoose.model("product", productSchema);
+
+module.exports = mongoose.model('product', productSchema);
+
+
+
